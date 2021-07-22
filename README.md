@@ -65,4 +65,14 @@ sudo find /var/lib/docker/ -name '*.log' -type f -printf '%s %p\n'| sort -nr | h
 ```shell
 sudo find /var/lib/docker/ -name '*.log' | sudo awk '{print "echo -n > "$1}' | sudo sh
 ```
+## Docker
+### restart daemon
+```shell
+sudo systemctl daemon-reload
+```
+### restart docker
+```shell
+sudo systemctl restart docker
+```
+
 
