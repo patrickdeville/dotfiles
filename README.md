@@ -56,4 +56,13 @@ plugins=(git docker zsh-syntax-highlighting zsh-autosuggestions)
 
 - Set the [desired theme](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes) by editing the `ZSH_THEME` variable. 
 
+## Manage LOG files
+### Largest top 10 log files and directories in /var/lib/docker
+```shell
+sudo find /var/lib/docker/ -name '*.log' -type f -printf '%s %p\n'| sort -nr | head -10
+```
+### Purge log files in /var/lib/docker
+```shell
+sudo find /var/lib/docker/ -name '*.log' | sudo awk '{print "echo -n > "$1}' | sudo sh
+```
 
